@@ -3,7 +3,20 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@now/static-build"
+      "use": "@now/static-build",
+      "config": {
+        "useBuildUtils": "@now/build-utils@canary"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "(.*\\..*))",
+      "dest": "$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
     }
   ]
 }
